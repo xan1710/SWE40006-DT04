@@ -1,0 +1,7 @@
+Data Processing Report — 2026-09-23T15:06:55.869163+00:00
+==================================================
+
+File: sample.txt
+  Lines: 3
+  Words: 35
+  Top 5 words: [('this', 9), ('is', 9), ('sample', 8), ('text.', 8), ('swe40006.', 1)]
