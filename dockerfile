@@ -1,8 +1,9 @@
 FROM python:3.13.5-slim
 WORKDIR /app
-COPY processor.py .
-RUN useradd -m appuser && \
-    mkdir -p /data/input /data/output && \
-    chown -R appuser:appuser /data
-USER appuser
-CMD ["python", "processor.py"]
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY app.py .
+EXPOSE 5000
+ENV APP_TITLE="SWE40006 Docker Demo"
+HEALTHCHECK --interval=30s --timeout=3s CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:5000/health')" || exit 1
+CMD ["python", "app.py"]
