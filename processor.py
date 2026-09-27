@@ -41,7 +41,7 @@ def main():
     for filename in files:
         filepath = os.path.join(INPUT_DIR, filename)
         log(f"Processing {filename}...")
-        time.sleep(1)  # simulate work, makes lifecycle visible in logs
+        time.sleep(1)
         word_count, line_count, top_words = process_file(filepath)
 
         report_lines.append(f"\nFile: {filename}")
